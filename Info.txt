@@ -1,0 +1,29 @@
+https://retoolapi.dev/0JMRMI/data
+See all available endpoints here (generated with json-server).
+Endpoint URL
+
+HTTP method endpoints
+
+GET
+/0JMRMI/data
+
+GET filter
+/0JMRMI/data?Nombre=value
+
+GET by id
+/0JMRMI/data/1
+
+GET paginate
+/0JMRMI/data?_page=2&_limit=10
+
+POST
+/0JMRMI/data
+
+PUT
+/0JMRMI/data/1
+
+PATCH
+/0JMRMI/data/1
+
+DELETE
+/0JMRMI/data/1
