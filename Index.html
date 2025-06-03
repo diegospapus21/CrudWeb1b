@@ -29,24 +29,28 @@
 
     <main class="Container">
         <h2> Integrantes del equipo</h2>
-        <Table id="tabla" class="overflow-auto">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>email</th>
-                    <th>edad</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
+        <div>
+            <Table id="tabla" class="overflow-auto">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>email</th>
+                        <th>edad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                    <!--Aqui va el cuerpo de la tabla-->
+                    <!--Registro que viene de la API-->
+    
+                </tbody>
+            </Table>
+        </div>
 
-            <tbody>
-                <!--Aqui va el cuerpo de la tabla-->
-                <!--Registro que viene de la API-->
-
-            </tbody>
-        </Table>
+        
     </main>
 
     <!--Modal para agregar integrantes-->
@@ -59,7 +63,7 @@
             <form id="frmAgregar">
                 <input type="text" id="nombre" placeholder="Nombre" required>
                 <input type="text" id="apellido" placeholder="Apellido" required>
-                <input type="email" id="correo" placeholder="Correo electrónico" required>
+                <input type="email" id="email" placeholder="Correo electrónico" required>
                 <input type="number" id="edad" placeholder="edad" required>
                 <button type="submit" class="contrast">Guardar</button>
             </form>
@@ -68,7 +72,7 @@
 
     <!--Boton flotante para agregar registros-->
     <button class="add-button" id="btnAbrirModal" title="Agregar Integrante">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>+
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
     </button>
 
     <script src="JS/script.js"></script>

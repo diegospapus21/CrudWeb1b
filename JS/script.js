@@ -29,7 +29,7 @@ function mostrarDatos(datos) {
             <td>${persona.edad}</td>
             <td> 
                 <button>Editar</button>
-                <button>Eliminar</button>
+                <button onClick ="EliminarPersona(${persona.id})">Eliminar</button>
             </td>
 
         </tr>
@@ -42,7 +42,7 @@ ObtenerPersonas();
 
 //Agregar un nuevo registro
 const modal = document.getElementById("modal-agregar");
-const btnAgregar = document .getElementById("btnAbrirModal");
+const btnAgregar = document.getElementById("btnAbrirModal");
 const btnCerrar = document.getElementById("btnCerrarModal");
 
 btnAgregar.addEventListener("click" , () =>{
@@ -54,15 +54,15 @@ btnCerrar.addEventListener("click" , () => {
 }); 
 
 //Agregar nuevo integrante desde el formulario
-document.getElementById("fmrAgregar").addEventListener("submit" ,async e => {
+document.getElementById("frmAgregar").addEventListener("submit" ,async e => {
     e.preventDefault(); //e respresenta "submit" - Evita que el formulario se envie de golpe
 
-const nombre = document.getElementById("nombre").Value.trim();
-const apellido = document.getElementById("apellido").Value.trim();
-const email = document.getElementById("email").Value.trim();
-const edad = document.getElementById("edad").Value.trim();
+const Nombre = document.getElementById("nombre").value.trim();
+const Apellido = document.getElementById("apellido").value.trim();
+const email = document.getElementById("email").value.trim();
+const edad = document.getElementById("edad").value.trim();
 
-if(!nombre || !apellido || !email || !edad){
+if(!Nombre || !Apellido || !email || !edad){
     alert("Complete todos los campos");
     return; //Eviata que el formulario se envie
 }
@@ -71,7 +71,7 @@ if(!nombre || !apellido || !email || !edad){
 const respuesta = await fetch(API_URL , {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({nombre, apellido, email, edad})
+    body: JSON.stringify({Nombre, Apellido, email, edad})
 });
 
 if (respuesta.ok){
@@ -89,7 +89,20 @@ else{
     alert("Hubo un problema")
 }
 
-} );
+} ); 
+
+//Funcion para borrar registros 
+async function EliminarPersona(id){
+    const confirmacion = confirm("Estas completamente seguro de querer eliminar este registro");
+
+    //Validamos si el usuario dijo que si queria borrar
+    if(confirmacion){
+        await fetch(`${API_URL}/${id}`,{method: "DELETE"});
+
+        //Recargamos la tabla para ver la eliminacion
+        ObtenerPersonas();
+    }
+}
 
 
 
